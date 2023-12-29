@@ -1,17 +1,20 @@
 import java.util.HashMap;
 
-public class ClimbingStairs{
-HashMap<Integer, Integer> map = new HashMap<>();
+public class ClimbingStairs {
+    HashMap<Integer, Integer> map = new HashMap<>();
 
     public static void main(String[] args) {
-    for (int i = 0; i < 150; i++) {
-        System.out.println(climbStairs(i));
-}
-}
+        ClimbingStairs climbingStairs = new ClimbingStairs();
+
+        for (int i = 1; i < 46; i++) {
+            System.out.println(climbingStairs.climbStairs(i));
+        }
+    }
+
     public int climbStairs(int n) {
-        map.put(1,1);
-        map.put(2,2);
-        map.put(3,3);
+        map.put(1, 1);
+        map.put(2, 2);
+        map.put(3, 3);
         return recursiveSolution(n);
     }
 
