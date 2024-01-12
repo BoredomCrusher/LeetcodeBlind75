@@ -35,8 +35,8 @@ public class LargestSubstringWithoutCharacters {
                 tempString = tempString.split("" + s.charAt(i), 2)[1];
                 // reset hashmap and fill with characters of current string
                 // -- I have no idea why just removing the current character doesn't work
-                // -- but somehow, that doesn't work, and this works for every testcase on
-                // -- leetcode
+                // -- but somehow, that doesn't work, and this works
+                // -- for every testcase on leetcode
                 map = new HashMap<>();
                 for (int j = 0; j < tempString.length(); j++) {
                     map.put(tempString.charAt(j), true);
