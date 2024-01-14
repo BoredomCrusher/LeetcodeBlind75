@@ -29,24 +29,24 @@ public class LargestSubstringWithoutCharacters {
         String currentSubstring = "";
         int LongestStringLength = 0;
 
-        for (int i = 0; i < s.length(); i++) {
+        for (char c : s.toCharArray()) {
             // If the next character has already been added to the hashmap.
-            if (map.get(s.charAt(i)) != null) {
+            if (map.get(c) != null) {
                 // Get the string after the first instance of a repeated character.
-                String[] splitString = currentSubstring.split("" + s.charAt(i), 2);
+                String[] splitString = currentSubstring.split("" + c, 2);
                 currentSubstring = splitString[1];
 
                 // Remove the repeated character from hashmap,
                 // as well as all the characters before it.
-                for (int j = 0; j < splitString[0].length(); j++) {
-                    map.remove(splitString[0].charAt(j));
+                for (char ch : splitString[0].toCharArray()) {
+                    map.remove(ch);
                 }
             }
 
-            map.put(s.charAt(i), true);
+            map.put(c, true);
 
             // Add the current character to current largest substring without repeats.
-            currentSubstring += s.charAt(i);
+            currentSubstring += c;
 
             // Update the answer.
             if (currentSubstring.length() > LongestStringLength) {
