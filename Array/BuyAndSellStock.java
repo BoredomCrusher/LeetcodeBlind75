@@ -10,10 +10,6 @@ public class BuyAndSellStock {
     }
 
     public int maxProfit(int[] prices) {
-
-        if (prices.length == 1)
-            return 0;
-
         int tempMinPrice = prices[0];
         // index zero is the min price, index one is the max price
         int[] minMaxPrice = { tempMinPrice, 0 };
