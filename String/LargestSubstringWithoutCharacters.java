@@ -2,6 +2,7 @@ package String;
 
 import java.util.HashMap;
 
+// code is written to solve leetcode problem 3
 public class LargestSubstringWithoutCharacters {
     public static void main(String[] args) {
         LargestSubstringWithoutCharacters largestString = new LargestSubstringWithoutCharacters();
@@ -33,6 +34,7 @@ public class LargestSubstringWithoutCharacters {
             if (map.get(s.charAt(i)) != null) {
                 // get string after first instance of repeated character
                 tempString = tempString.split("" + s.charAt(i), 2)[1];
+
                 // reset hashmap and fill with characters of current string
                 // -- I have no idea why just removing the current character doesn't work
                 // -- but somehow, that doesn't work, and this works
