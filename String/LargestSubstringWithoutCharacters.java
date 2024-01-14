@@ -26,16 +26,15 @@ public class LargestSubstringWithoutCharacters {
 
     public int lengthOfLongestSubstring(String s) {
         HashMap<Character, Boolean> map = new HashMap<>();
-        String tempString = "";
-        String[] splitString = new String[2];
-        int finalStringLength = 0;
+        String currentSubstring = "";
+        int LongestStringLength = 0;
 
         for (int i = 0; i < s.length(); i++) {
             // If the next character has already been added to the hashmap.
             if (map.get(s.charAt(i)) != null) {
                 // Get the string after the first instance of a repeated character.
-                splitString = tempString.split("" + s.charAt(i), 2);
-                tempString = splitString[1];
+                String[] splitString = currentSubstring.split("" + s.charAt(i), 2);
+                currentSubstring = splitString[1];
 
                 // Remove the repeated character from hashmap,
                 // as well as all the characters before it.
@@ -47,13 +46,13 @@ public class LargestSubstringWithoutCharacters {
             map.put(s.charAt(i), true);
 
             // Add the current character to current largest substring without repeats.
-            tempString += s.charAt(i);
+            currentSubstring += s.charAt(i);
 
             // Update the answer.
-            if (tempString.length() > finalStringLength) {
-                finalStringLength = tempString.length();
+            if (currentSubstring.length() > LongestStringLength) {
+                LongestStringLength = currentSubstring.length();
             }
         }
-        return finalStringLength;
+        return LongestStringLength;
     }
 }
