@@ -1,7 +1,7 @@
 
 package String;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 // Code is written to solve leetcode problem 3,
 // "Longest Substring Without Repeating Characters."
@@ -25,25 +25,25 @@ public class LargestSubstringWithoutCharacters {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        HashMap<Character, Boolean> map = new HashMap<>();
+        HashSet<Character> set = new HashSet<>();
         String currentSubstring = "";
         int LongestStringLength = 0;
 
         for (char c : s.toCharArray()) {
             // If the next character has already been added to the hashmap.
-            if (map.get(c) != null) {
+            if (set.contains(c)) {
                 // Get the string after the first instance of a repeated character.
                 String[] splitString = currentSubstring.split("" + c, 2);
                 currentSubstring = splitString[1];
 
-                // Remove the repeated character from hashmap,
+                // Remove the repeated character from hashset,
                 // as well as all the characters before it.
                 for (char ch : splitString[0].toCharArray()) {
-                    map.remove(ch);
+                    set.remove(ch);
                 }
             }
 
-            map.put(c, true);
+            set.add(c);
 
             // Add the current character to current largest substring without repeats.
             currentSubstring += c;
