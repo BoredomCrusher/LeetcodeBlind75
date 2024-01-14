@@ -3,7 +3,8 @@ package String;
 
 import java.util.HashMap;
 
-// code is written to solve leetcode problem 3
+// Code is written to solve leetcode problem 3,
+// "Longest Substring Without Repeating Characters."
 public class LargestSubstringWithoutCharacters {
     public static void main(String[] args) {
         LargestSubstringWithoutCharacters largestString = new LargestSubstringWithoutCharacters();
@@ -13,12 +14,15 @@ public class LargestSubstringWithoutCharacters {
         Boolean testCase3 = largestString.lengthOfLongestSubstring("pwwkew") == 3;
         Boolean testCase4 = largestString.lengthOfLongestSubstring("dvdf") == 3;
         Boolean testCase5 = largestString.lengthOfLongestSubstring("abba") == 2;
+        Boolean testCase6 = largestString.lengthOfLongestSubstring("abc") == 3;
+        
 
         System.out.println("testCase1: " + testCase1);
         System.out.println("testCase2: " + testCase2);
         System.out.println("testCase3: " + testCase3);
         System.out.println("testCase4: " + testCase4);
-        System.out.println("testCase4: " + testCase5);
+        System.out.println("testCase5: " + testCase5);
+        System.out.println("testCase6: " + testCase6);
     }
 
     public int lengthOfLongestSubstring(String s) {
@@ -32,26 +36,25 @@ public class LargestSubstringWithoutCharacters {
         int finalStringLength = 0;
 
         for (int i = 0; i < s.length(); i++) {
-            // if next character has already been added to the hashmap
+            // If the next character has already been added to the hashmap.
             if (map.get(s.charAt(i)) != null) {
-                // get string after first instance of repeated character
+                // Get the string after the first instance of a repeated character.
                 splitString = tempString.split("" + s.charAt(i), 2);
                 tempString = splitString[1];
                 
-                // remove repeated character from hashmap, 
-                // as well as all characters before it
+                // Remove the repeated character from hashmap, 
+                // as well as all the characters before it.
                 for (int j = 0; j < splitString[0].length(); j++) {
                     map.remove(splitString[0].charAt(j));
                 }
             }
 
-            // add current character to hashmap
             map.put(s.charAt(i), true);
 
-            // add current character to current largest substring without repeats
+            // Add the current character to current largest substring without repeats.
             tempString += s.charAt(i);
 
-            // update answer
+            // Update the answer.
             if (tempString.length() > finalStringLength) {
                 finalStringLength = tempString.length();
             }
