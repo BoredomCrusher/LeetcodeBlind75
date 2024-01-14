@@ -30,7 +30,7 @@ public class LargestSubstringWithoutCharacters {
         int LongestStringLength = 0;
 
         for (char c : s.toCharArray()) {
-            // If the next character has already been added to the hashmap.
+            // If the next character has already been added to the hashset.
             if (set.contains(c)) {
                 // Get the string after the first instance of a repeated character.
                 String[] splitString = currentSubstring.split("" + c, 2);
