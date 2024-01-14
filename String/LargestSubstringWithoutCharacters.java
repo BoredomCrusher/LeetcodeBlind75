@@ -15,7 +15,6 @@ public class LargestSubstringWithoutCharacters {
         Boolean testCase4 = largestString.lengthOfLongestSubstring("dvdf") == 3;
         Boolean testCase5 = largestString.lengthOfLongestSubstring("abba") == 2;
         Boolean testCase6 = largestString.lengthOfLongestSubstring("abc") == 3;
-        
 
         System.out.println("testCase1: " + testCase1);
         System.out.println("testCase2: " + testCase2);
@@ -26,10 +25,6 @@ public class LargestSubstringWithoutCharacters {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        if (s.length() <= 1) {
-            return s.length();
-        }
-
         HashMap<Character, Boolean> map = new HashMap<>();
         String tempString = "";
         String[] splitString = new String[2];
@@ -41,8 +36,8 @@ public class LargestSubstringWithoutCharacters {
                 // Get the string after the first instance of a repeated character.
                 splitString = tempString.split("" + s.charAt(i), 2);
                 tempString = splitString[1];
-                
-                // Remove the repeated character from hashmap, 
+
+                // Remove the repeated character from hashmap,
                 // as well as all the characters before it.
                 for (int j = 0; j < splitString[0].length(); j++) {
                     map.remove(splitString[0].charAt(j));
@@ -62,4 +57,3 @@ public class LargestSubstringWithoutCharacters {
         return finalStringLength;
     }
 }
-
