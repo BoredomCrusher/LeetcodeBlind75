@@ -2,8 +2,8 @@ package Heap;
 
 // LeetCode problem 21
 
-// this question isn't in blind 75,
-// but it's a good warmup to solve MergeKSortedLists
+// This question isn't in blind 75,
+// but it's a good warmup to solve MergeKSortedLists.
 public class MergeTwoSortedLists {
     public static void main(String[] args) {
         ListNode node1 = new ListNode(2);

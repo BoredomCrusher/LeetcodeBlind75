@@ -1,5 +1,6 @@
 package LinkedList;
 
+// LeetCode problem 206
 public class ReverseLinkedList {
     public static void main(String[] args) {
         ReverseLinkedList linkedList = new ReverseLinkedList();
@@ -18,7 +19,7 @@ public class ReverseLinkedList {
     }
 
     // Definition for singly-linked list.
-    public static class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 

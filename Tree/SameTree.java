@@ -1,5 +1,6 @@
 package Tree;
 
+// LeetCode problem 100
 public class SameTree {
     public static void main(String[] args) {
         SameTree tree = new SameTree();
@@ -28,7 +29,7 @@ public class SameTree {
     }
 
     // Definition for a binary tree node.
-    public static class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

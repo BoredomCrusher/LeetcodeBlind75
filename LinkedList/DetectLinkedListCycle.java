@@ -2,6 +2,7 @@ package LinkedList;
 
 import java.util.HashMap;
 
+// LeetCode problem 141
 public class DetectLinkedListCycle {
     public static void main(String[] args) {
         DetectLinkedListCycle detectCycle = new DetectLinkedListCycle();
@@ -23,7 +24,7 @@ public class DetectLinkedListCycle {
     }
 
     // Definition for singly-linked list.
-    public static class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 

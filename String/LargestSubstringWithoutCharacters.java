@@ -3,8 +3,7 @@ package String;
 
 import java.util.HashSet;
 
-// Code is written to solve leetcode problem 3,
-// "Longest Substring Without Repeating Characters."
+// LeetCode problem 3: "Longest Substring Without Repeating Characters."
 public class LargestSubstringWithoutCharacters {
     public static void main(String[] args) {
         LargestSubstringWithoutCharacters largestString = new LargestSubstringWithoutCharacters();
@@ -30,13 +29,13 @@ public class LargestSubstringWithoutCharacters {
         int LongestStringLength = 0;
 
         for (char c : s.toCharArray()) {
-            // If the next character has already been added to the hashset.
+            // Checks if the next character has already been added to the hashset.
             if (set.contains(c)) {
-                // Get the string after the first instance of a repeated character.
+                // Gets the string after the first instance of a repeated character.
                 String[] splitString = currentSubstring.split("" + c, 2);
                 currentSubstring = splitString[1];
 
-                // Remove the repeated character from hashset,
+                // Removes the repeated character from hashset,
                 // as well as all the characters before it.
                 for (char ch : splitString[0].toCharArray()) {
                     set.remove(ch);
@@ -45,10 +44,10 @@ public class LargestSubstringWithoutCharacters {
 
             set.add(c);
 
-            // Add the current character to current largest substring without repeats.
+            // Adds the current character to current largest substring without repeats.
             currentSubstring += c;
 
-            // Update the answer.
+            // Updates the answer.
             if (currentSubstring.length() > LongestStringLength) {
                 LongestStringLength = currentSubstring.length();
             }

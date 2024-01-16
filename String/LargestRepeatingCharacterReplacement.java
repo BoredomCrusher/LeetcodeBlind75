@@ -2,6 +2,7 @@ package String;
 
 import java.util.HashMap;
 
+// LeetCode problem 424
 public class LargestRepeatingCharacterReplacement {
     public static void main(String[] args) {
         LargestRepeatingCharacterReplacement largestSubstring = new LargestRepeatingCharacterReplacement();

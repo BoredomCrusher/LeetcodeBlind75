@@ -1,5 +1,6 @@
 import java.util.HashMap;
 
+// LeetCode problem 70
 public class ClimbingStairs {
     HashMap<Integer, Integer> map = new HashMap<>();
 

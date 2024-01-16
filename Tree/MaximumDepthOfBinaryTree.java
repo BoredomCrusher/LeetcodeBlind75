@@ -1,5 +1,6 @@
 package Tree;
 
+// LeetCode problem 104
 public class MaximumDepthOfBinaryTree {
     public static void main(String[] args) {
         MaximumDepthOfBinaryTree maximumDepth = new MaximumDepthOfBinaryTree();
@@ -26,7 +27,7 @@ public class MaximumDepthOfBinaryTree {
     }
 
     // Definition for a binary tree node.
-    public static class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

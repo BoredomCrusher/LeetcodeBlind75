@@ -7,27 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-// Definition for a Node.
-class Node {
-    public int val;
-    public List<Node> neighbors;
-
-    public Node() {
-        val = 0;
-        neighbors = new ArrayList<Node>();
-    }
-
-    public Node(int _val) {
-        val = _val;
-        neighbors = new ArrayList<Node>();
-    }
-
-    public Node(int _val, ArrayList<Node> _neighbors) {
-        val = _val;
-        neighbors = _neighbors;
-    }
-}
-
+// LeetCode problem 133
 class CloneGraph {
 
     public static void main(String[] args) {
@@ -70,6 +50,27 @@ class CloneGraph {
         System.out.println("[" + cloned1.neighbors.toString() + ", " + cloned2.neighbors.toString()
                 + ", " + cloned3.neighbors.toString() + ", " +
                 cloned4.neighbors.toString() + "]");
+    }
+
+    // Definition for a Node.
+    static class Node {
+        public int val;
+        public List<Node> neighbors;
+
+        public Node() {
+            val = 0;
+            neighbors = new ArrayList<Node>();
+        }
+
+        public Node(int _val) {
+            val = _val;
+            neighbors = new ArrayList<Node>();
+        }
+
+        public Node(int _val, ArrayList<Node> _neighbors) {
+            val = _val;
+            neighbors = _neighbors;
+        }
     }
 
     Map<Node, Node> map = new HashMap<>();

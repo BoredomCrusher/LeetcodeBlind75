@@ -4,8 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+// LeetCode problem 347
 public class TopKFrequentElements {
-    public class IntPair {
+    public static void main(String[] args) {
+        int[] input = { 1, 2, 3, 2, 4, 5, 6, 7, 3, 7, 6, 5, 3, 4, 2, 1, 2, 3, 5, 4, 37, 6, 5 };
+        int[] answer = topKFrequent(input, 3);
+
+        for (int i : answer) {
+            System.out.println(i);
+        }
+    }
+
+    public static class IntPair {
         public int uniqueNum = 0;
         public int frequency = 0;
 
@@ -15,7 +25,7 @@ public class TopKFrequentElements {
         }
     }
 
-    public int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         // Counts and stores the frequency of unique integers in a hashmap.
