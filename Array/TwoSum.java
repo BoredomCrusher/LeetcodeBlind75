@@ -2,6 +2,7 @@ package Array;
 
 import java.util.HashMap;
 
+// LeetCode problem 1
 public class TwoSum {
     public static void main(String[] args) {
         int nums[] = { 3, 2, 4 };
