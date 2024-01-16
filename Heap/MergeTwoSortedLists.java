@@ -28,6 +28,7 @@ public class MergeTwoSortedLists {
         ListNode root2 = new ListNode(1);
         root2.next = node4;
 
+        // [1, 1, 1, 2, 3, 3, 4, 5]
         ListNode mergedNode = solution(root1, root2);
         System.out.println(toString(mergedNode));
     }

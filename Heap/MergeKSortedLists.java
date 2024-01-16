@@ -33,7 +33,7 @@ public class MergeKSortedLists {
 
         ListNode[] nodes = { root1, root2, root3 };
 
-        // The code currently infinitely loops, find out where
+        // ListNode mergedList = mergeKListsBruteForce(nodes);
         ListNode mergedList = mergeKLists(nodes);
 
         // should be [1, 1, 1, 2, 3, 3, 4, 5, 5]
@@ -71,54 +71,77 @@ public class MergeKSortedLists {
     }
 
     public static ListNode mergeKLists(ListNode[] lists) {
-        int minValue = 0;
-        ListNode head = null;
-        ListNode currentNode;
-        int emptyNodes = 0;
-        // Loop while the list still has nodes
-        while (lists.length > 0) {
-            // Compares all of the head nodes for the minimum value.
-            for (ListNode minNode : lists) {
-                if (minNode != null) {
-                    minValue = Math.min(minValue, minNode.val);
-                    // if a node in the list is empty, remake the list without the node
-                } else if (lists.length > 0) {
-                    ListNode[] newList = new ListNode[lists.length - 1];
-                    for (int i = 0; i < lists.length - emptyNodes; i++) {
-                        newList[i] = lists[i];
-                    }
-                    lists = newList;
-                }
-            }
-            // Finds node with the minumum value and adds it to the LinkedList.
-            for (ListNode findMin : lists) {
-                if (findMin != null && minValue == findMin.val) {
-                    head.next = findMin;
-                    findMin = findMin.next;
-                    head = head.next;
-                }
-            }
-        }
+        if (lists == null || lists.length == 0)
+            return null;
 
-        // there HAS to be a faster way than reversing the list
-        return reverseList(head);
+        return mergeKListsMergeSort(lists, 0, lists.length - 1);
     }
 
-    public static ListNode reverseList(ListNode head) {
-        ListNode reverseHead = null;
+    // Implements mergesort to sort the ListNodes
+    public static ListNode mergeKListsMergeSort(ListNode[] lists, int start, int end) {
+        if (start == end)
+            return lists[start];
 
-        // Loop while there is still another node to be copied.
-        while (head != null) {
-            // Deep clone the current node.
-            ListNode n = new ListNode(head.val);
-            // Initialize the next node to be copied.
-            n.next = reverseHead;
-            // Set the deep cloned node to be the next node.
-            reverseHead = n;
-            // Access the next node in the inputted list and loop.
-            head = head.next;
+        if (start + 1 == end)
+            return mergeHelper(lists[start], lists[end]);
+
+        int mid = (start + end) / 2;
+
+        ListNode mergedLeftNode = mergeKListsMergeSort(lists, start, mid);
+        ListNode mergedRightNode = mergeKListsMergeSort(lists, mid + 1, end);
+
+        return mergeHelper(mergedLeftNode, mergedRightNode);
+    }
+
+    // This solution is really slow, and was my first-try brute force attempt.
+    // It merges and sorts the first node with the second,
+    // then merges and sorts that with the third, and so on.
+    public static ListNode mergeKListsBruteForce(ListNode[] lists) {
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
+
+        if (lists != null && lists.length != 0) {
+            tail.next = lists[0];
         }
 
-        return reverseHead;
+        for (int i = 1; i < lists.length; i++) {
+            tail.next = mergeHelper(tail.next, lists[i]);
+        }
+
+        return dummy.next;
+    }
+
+    public static ListNode mergeHelper(ListNode node1, ListNode node2) {
+        if (node1 == null && node2 == null)
+            return null;
+
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
+
+        while (node1 != null && node2 != null) {
+            if (node1.val <= node2.val) {
+                tail.next = node1;
+                node1 = node1.next;
+            } else {
+                tail.next = node2;
+                node2 = node2.next;
+            }
+            tail = tail.next;
+        }
+
+        if (node2 == null && node1 != null) {
+            while (node1 != null) {
+                tail.next = node1;
+                node1 = node1.next;
+                tail = tail.next;
+            }
+        } else if (node1 == null && node2 != null) {
+            while (node2 != null) {
+                tail.next = node2;
+                node2 = node2.next;
+                tail = tail.next;
+            }
+        }
+        return dummy.next;
     }
 }
