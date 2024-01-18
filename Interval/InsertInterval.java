@@ -31,8 +31,7 @@ public class InsertInterval {
 
     public static int[][] insert(int[][] intervals, int[] newInterval) {
         if (intervals.length == 0) {
-            int[][] answer = { newInterval };
-            return answer;
+            return new int[][] { newInterval };
         }
 
         Queue<int[]> intervalQueue = new LinkedList<>();
