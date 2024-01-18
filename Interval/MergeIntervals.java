@@ -41,7 +41,7 @@ public class MergeIntervals {
 
         int[] newInterval = intervals[0];
         for (int i = 1; i < intervals.length; i++) {
-            // If the end interval less than the start value of the next interval,
+            // If the end interval is less than the start value of the next interval,
             // it is not overlapping.
             if (newInterval[1] < intervals[i][0]) {
                 intervalQueue.add(newInterval);
