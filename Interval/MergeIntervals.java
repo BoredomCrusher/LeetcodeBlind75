@@ -34,6 +34,7 @@ public class MergeIntervals {
         if (intervals.length == 1)
             return intervals;
 
+        // Sorts array based on first dimension.
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
         Queue<int[]> intervalQueue = new LinkedList<>();
