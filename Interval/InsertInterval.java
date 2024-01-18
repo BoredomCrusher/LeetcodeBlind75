@@ -3,8 +3,38 @@ package Interval;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// LeetCode 57
 public class InsertInterval {
-    public int[][] insert(int[][] intervals, int[] newInterval) {
+    public static void main(String[] args) {
+        int[][] input1 = { { 1, 2 }, { 3, 5 }, { 6, 7 }, { 8, 10 }, { 12, 16 } };
+        int[][] input2 = { { 1, 3 }, { 6, 9 } };
+        int[][] input3 = { { 1, 5 } };
+
+        int[][] output1 = insert(input1, new int[] { 4, 8 });
+        int[][] output2 = insert(input2, new int[] { 2, 5 });
+        int[][] output3 = insert(input3, new int[] { 2, 3 });
+
+        for (int i = 0; i < output1.length; i++) {
+            System.out.print("[" + output1[i][0] + ", " + output1[i][1] + "] ");
+        }
+
+        System.out.println();
+        for (int i = 0; i < output2.length; i++) {
+            System.out.print("[" + output2[i][0] + ", " + output2[i][1] + "] ");
+        }
+
+        System.out.println();
+        for (int i = 0; i < output3.length; i++) {
+            System.out.println("[" + output3[i][0] + ", " + output3[i][1] + "] ");
+        }
+    }
+
+    public static int[][] insert(int[][] intervals, int[] newInterval) {
+        if (intervals.length == 0) {
+            int[][] answer = { newInterval };
+            return answer;
+        }
+
         Queue<int[]> intervalQueue = new LinkedList<>();
 
         for (int i = 0; i < intervals.length; i++) {
@@ -25,8 +55,21 @@ public class InsertInterval {
                 intervalQueue.add(intervals[i]);
             }
 
-            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
-            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            // Checks for overlapping start intervals
+            if (newInterval[0] >= intervals[i][0] && intervals[i][1] >= newInterval[0]) {
+                newInterval[0] = intervals[i][0];
+            }
+
+            // Checks for overlapping end intervals
+            if (newInterval[1] >= intervals[i][0] && intervals[i][1] >= newInterval[1]) {
+                newInterval[1] = intervals[i][1];
+            }
+
+            // Deals with an off by one error if intervals[i] is the only interval in the
+            // array.
+            if (i == intervals.length - 1) {
+                intervalQueue.add(newInterval);
+            }
         }
 
         // Adding the correct intervals to a new array the size of the answer queue
