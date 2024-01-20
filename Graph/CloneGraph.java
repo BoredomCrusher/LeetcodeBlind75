@@ -81,7 +81,7 @@ class CloneGraph {
         return recursiveSolution(node);
     }
 
-    // clones via DFS
+    // Clones the graph via DFS.
     public Node recursiveSolution(Node node) {
         if (node == null) {
             return null;
@@ -101,13 +101,13 @@ class CloneGraph {
         return cloneNode;
     }
 
-    // clones via BFS
+    // Alternate solution, clones the graph via BFS.
     public Node iterativeSolution(Node node) {
         if (node == null) {
             return null;
         }
 
-        // map nodes to cloned graph
+        // Maps each node to a clone of itself.
         Map<Node, Node> map = new HashMap<>();
         map.put(node, new Node(node.val));
 
