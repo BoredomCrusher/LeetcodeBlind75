@@ -15,9 +15,10 @@ public class NumberOfOneBits {
     }
 
     public static int hammingWeight(int n) {
-        int answer = 0;
         if (n == 0)
             return 0;
+
+        int answer = 0;
 
         if (n > 0) {
             while (n > 0) {
