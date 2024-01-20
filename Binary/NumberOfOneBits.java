@@ -22,10 +22,7 @@ public class NumberOfOneBits {
         if (n > 0) {
             while (n > 0) {
                 // Compares the first bit of the input to 1.
-                int firstBit = n & 1;
-                if (firstBit == 1) {
-                    answer += 1;
-                }
+                answer += n & 1;
                 // Bitshifts right by one to check the next bit.
                 n = n >> 1;
             }
@@ -34,10 +31,7 @@ public class NumberOfOneBits {
         } else {
             n = ~n;
             while (n > 0) {
-                int firstBit = n & 1;
-                if (firstBit == 1) {
-                    answer += 1;
-                }
+                answer += n & 1;
                 n = n >> 1;
             }
             answer = 32 - answer;
