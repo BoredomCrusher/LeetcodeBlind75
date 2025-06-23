@@ -5,11 +5,11 @@ public class CoinChange {
     int dp[];
 
     public static void main(String[] args) {
-        int coins[] = { 3, 4, 6, 7, 8, 10 };
+        int coins[] = { 11, 23, 29, 37, 48, 13 };
 
         CoinChange coinChange = new CoinChange();
 
-        for (int i = 0; i < 150; i++) {
+        for (int i = 101; i < 102; i++) {
             System.out.println(coinChange.coinChange(coins, i));
         }
     }

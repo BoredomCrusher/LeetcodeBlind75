@@ -43,10 +43,9 @@ public class CourseSchedule {
         for (int[] courses : prerequisites) {
             if (map.get(courses[0]) == null) {
                 map.put(courses[0], new ArrayList<Integer>());
-                map.get(courses[0]).add(courses[1]);
-            } else {
-                map.get(courses[0]).add(courses[1]);
-            }
+            } 
+            
+            map.get(courses[0]).add(courses[1]);
         }
 
         // Since every value in prerequisites is between 0 and numCourses,

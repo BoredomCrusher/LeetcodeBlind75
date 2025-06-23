@@ -74,7 +74,8 @@ public class MergeKSortedLists {
         if (lists == null || lists.length == 0)
             return null;
 
-        return mergeKListsMergeSort(lists, 0, lists.length - 1);
+        //return mergeKListsMergeSort(lists, 0, lists.length - 1);
+        return mergeKListsBruteForce(lists);
     }
 
     // Implements mergesort to sort the ListNodes
@@ -97,18 +98,17 @@ public class MergeKSortedLists {
     // It merges and sorts the first node with the second,
     // then merges and sorts that with the third, and so on.
     public static ListNode mergeKListsBruteForce(ListNode[] lists) {
-        ListNode dummy = new ListNode();
-        ListNode tail = dummy;
+        ListNode head = new ListNode();
 
         if (lists != null && lists.length != 0) {
-            tail.next = lists[0];
+            head = lists[0];
         }
 
         for (int i = 1; i < lists.length; i++) {
-            tail.next = mergeHelper(tail.next, lists[i]);
+            head = mergeHelper(head, lists[i]);
         }
 
-        return dummy.next;
+        return head;
     }
 
     public static ListNode mergeHelper(ListNode node1, ListNode node2) {
@@ -129,19 +129,19 @@ public class MergeKSortedLists {
             tail = tail.next;
         }
 
-        if (node2 == null && node1 != null) {
-            while (node1 != null) {
-                tail.next = node1;
-                node1 = node1.next;
-                tail = tail.next;
-            }
-        } else if (node1 == null && node2 != null) {
-            while (node2 != null) {
-                tail.next = node2;
-                node2 = node2.next;
-                tail = tail.next;
-            }
+
+        while (node1 != null) {
+            tail.next = node1;
+            node1 = node1.next;
+            tail = tail.next;
         }
+
+        while (node2 != null) {
+            tail.next = node2;
+            node2 = node2.next;
+            tail = tail.next;
+        }
+        
         return dummy.next;
     }
 }

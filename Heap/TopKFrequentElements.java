@@ -39,7 +39,7 @@ public class TopKFrequentElements {
 
         // Makes a maxHeap priority queue based on
         // the highest frequency of unique integers.
-        PriorityQueue<IntPair> heap = new PriorityQueue<>((a, b) -> b.frequency - a.frequency);
+        PriorityQueue<IntPair> heap = new PriorityQueue<>((a, b) -> Integer.compare(b.frequency, a.frequency));
 
         // Adds each key and value into the priority queue as a single object.
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {

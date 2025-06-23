@@ -52,16 +52,16 @@ public class InsertInterval {
             // there is no overlap between the two intervals.
             if (newInterval[0] > intervals[i][1]) {
                 intervalQueue.add(intervals[i]);
-            }
+            } else {
+                // Checks for overlapping start intervals
+                if (newInterval[0] >= intervals[i][0] && intervals[i][1] >= newInterval[0]) {
+                    newInterval[0] = intervals[i][0];
+                }
 
-            // Checks for overlapping start intervals
-            if (newInterval[0] >= intervals[i][0] && intervals[i][1] >= newInterval[0]) {
-                newInterval[0] = intervals[i][0];
-            }
-
-            // Checks for overlapping end intervals
-            if (newInterval[1] >= intervals[i][0] && intervals[i][1] >= newInterval[1]) {
-                newInterval[1] = intervals[i][1];
+                // Checks for overlapping end intervals
+                if (newInterval[1] >= intervals[i][0] && intervals[i][1] >= newInterval[1]) {
+                    newInterval[1] = intervals[i][1];
+                }
             }
 
             // Deals with an off by one error if intervals[i] is the only interval in the
