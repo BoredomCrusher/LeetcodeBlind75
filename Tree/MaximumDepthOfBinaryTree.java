@@ -1,6 +1,8 @@
 package Tree;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 // LeetCode problem 104
@@ -21,12 +23,12 @@ public class MaximumDepthOfBinaryTree {
         node3.left = node4;
         node3.right = node5;
 
-        System.out.println("depth of 4:" + maximumDepth.maxDepth(root));
+        System.out.println("depth of 4:" + maximumDepth.recursiveDepth(root));
 
         TreeNode node6 = new TreeNode(7);
         node5.right = node6;
 
-        System.out.println("depth of 5:" + maximumDepth.recursiveDepth(root));
+        System.out.println("depth of 5:" + maximumDepth.BFS(root));
     }
 
     // Definition for a binary tree node.
@@ -73,7 +75,7 @@ public class MaximumDepthOfBinaryTree {
         if (root == null)
             return 0;
 
-        return Math.max(recursiveDepth(root.left) + 1, 
+        return Math.max(recursiveDepth(root.left), 
                         recursiveDepth(root.right) + 1);
     }
 
@@ -104,6 +106,33 @@ public class MaximumDepthOfBinaryTree {
                 }
             }
         }
+        return maxDepth;
+    }
+
+    public int BFS(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        int maxDepth = 0;
+        int currentLevel = 0;
+
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            maxDepth++;
+            currentLevel = queue.size();
+
+            for (int i = 0; i < currentLevel; i++) {
+                TreeNode currentNode = queue.poll();
+                if (currentNode.left != null)
+                    queue.add(currentNode.left);
+
+                if (currentNode.right != null)
+                    queue.add(currentNode.right);
+            }
+        }
+
         return maxDepth;
     }
 }
