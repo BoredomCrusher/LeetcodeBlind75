@@ -1,6 +1,7 @@
 package LinkedList;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 // LeetCode problem 141
 public class DetectLinkedListCycle {
@@ -16,11 +17,11 @@ public class DetectLinkedListCycle {
         node2.next = node3;
         node3.next = node4;
 
-        System.out.println("no cycle, return false: " + detectCycle.hasCycle(node1));
+        System.out.println("no cycle, return false: " + detectCycle.hasCycleMovingPointers(node1));
 
         node3.next = node1;
 
-        System.out.println("there is a cycle, return true: " + detectCycle.hasCycle(node1));
+        System.out.println("there is a cycle, return true: " + detectCycle.hasCycleMovingPointers(node1));
     }
 
     // Definition for singly-linked list.
@@ -34,19 +35,31 @@ public class DetectLinkedListCycle {
         }
     }
 
-    public static boolean hasCycle(ListNode head) {
-        // Hashmap stores a node's value and the node's next node's value.
-        HashMap<ListNode, ListNode> map = new HashMap<>();
-        while (head != null && head.next != null) {
-            // if the node and its next node have already been iterated through,
-            // a cycle has been detected
-            if (map.get(head) != null && map.get(head) == head.next) {
+    public boolean hasCycleSlow(ListNode head) {
+        HashSet<ListNode> set = new HashSet<>();
+        while (head != null) {
+            if (!set.contains(head)) {
+                set.add(head);
+                head = head.next;
+            } else {
                 return true;
             }
-            map.put(head, head.next);
-            head = head.next;
         }
         return false;
     }
 
+    public boolean hasCycleMovingPointers(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+           
+            if (slow == fast)
+                return true;
+        }
+
+        return false;
+    }
 }
