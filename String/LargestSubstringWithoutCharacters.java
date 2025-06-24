@@ -11,9 +11,9 @@ public class LargestSubstringWithoutCharacters {
         Boolean testCase1 = largestString.lengthOfLongestSubstring("abcabcbb") == 3;
         Boolean testCase2 = largestString.lengthOfLongestSubstring("bbbbb") == 1;
         Boolean testCase3 = largestString.lengthOfLongestSubstring("pwwkew") == 3;
-        Boolean testCase4 = largestString.lengthOfLongestSubstring("dvdf") == 3;
-        Boolean testCase5 = largestString.lengthOfLongestSubstring("abba") == 2;
-        Boolean testCase6 = largestString.lengthOfLongestSubstring("abc") == 3;
+        Boolean testCase4 = largestString.lengthOfLongestSubstringSlidingWindow("dvdf") == 3;
+        Boolean testCase5 = largestString.lengthOfLongestSubstringSlidingWindow("abba") == 2;
+        Boolean testCase6 = largestString.lengthOfLongestSubstringSlidingWindow("abc") == 3;
 
         System.out.println("testCase1: " + testCase1);
         System.out.println("testCase2: " + testCase2);
@@ -24,34 +24,37 @@ public class LargestSubstringWithoutCharacters {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        HashSet<Character> set = new HashSet<>();
         String currentSubstring = "";
-        int LongestStringLength = 0;
-
+        int maxLength = 0;
+        int index;
         for (char c : s.toCharArray()) {
-            // Checks if the next character has already been added to the hashset.
-            if (set.contains(c)) {
-                // Gets the string after the first instance of a repeated character.
-                String[] splitString = currentSubstring.split("" + c, 2);
-                currentSubstring = splitString[1];
+            index = currentSubstring.indexOf(c);
+            if (index != -1)
+                currentSubstring = currentSubstring.substring(index + 1);
 
-                // Removes the repeated character from hashset,
-                // as well as all the characters before it.
-                for (char ch : splitString[0].toCharArray()) {
-                    set.remove(ch);
-                }
-            }
-
-            set.add(c);
-
-            // Adds the current character to current largest substring without repeats.
             currentSubstring += c;
-
-            // Updates the answer.
-            if (currentSubstring.length() > LongestStringLength) {
-                LongestStringLength = currentSubstring.length();
-            }
+            maxLength = Math.max(maxLength, currentSubstring.length());
         }
-        return LongestStringLength;
+
+        return maxLength;
     }
+
+    public int lengthOfLongestSubstringSlidingWindow(String s) {
+        int left = 0;
+        int maxLength = 0;
+        HashSet<Character> set = new HashSet();
+
+        for (int right = 0; right < s.length(); right++) {
+            while (set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+
+            set.add(s.charAt(right));
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+    
 }

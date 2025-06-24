@@ -20,8 +20,7 @@ public class SetMatrixZeroes {
             }
         }
         
-        // Needs to traverse backwards to not accidentally overwrite things,
-        // for strange reasons.
+        // Needs to traverse backwards to not accidentally overwrite things.
         for (int row = matrix.length - 1; row >= 0; row--) {
             for (int column = matrix[0].length - 1; column >= 1; column--) {
                 if (matrix[row][0] == 0 || matrix[0][column] == 0) 
