@@ -8,6 +8,7 @@ public class SetMatrixZeroes {
      public void setZeroes(int[][] matrix) {
         boolean zeroInInitialColumn = false;
 
+        // Sets zeroes in first row and column as flags.
         for (int row = 0; row < matrix.length; row++) {
             if (matrix[row][0] == 0)
                 zeroInInitialColumn = true;

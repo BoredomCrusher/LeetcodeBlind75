@@ -24,7 +24,7 @@ public class SameTree {
 
         rootClone.left = node2;
 
-        System.out.println("Different tree (false): " + isSameTree(root, rootClone));
+        System.out.println("Different tree (false): " + isSameTreeSimplified(root, rootClone));
 
     }
 
@@ -46,6 +46,14 @@ public class SameTree {
             this.left = left;
             this.right = right;
         }
+    }
+
+    public static boolean isSameTreeSimplified(TreeNode p, TreeNode q) {
+        if (p == null || q == null)
+            return (!(p == null ^ q == null)) && p == q; 
+
+        return p.val == q.val && isSameTreeSimplified(p.left, q.left) 
+        && isSameTreeSimplified(p.right, q.right); 
     }
 
     public static boolean isSameTree(TreeNode p, TreeNode q) {

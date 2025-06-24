@@ -55,10 +55,10 @@ public class SpiralMatrix {
             }
             
             if (left <= right) {
-            for (int i = bot; i >= top; i--)
-                answer.add(matrix[i][left]);
+                for (int i = bot; i >= top; i--)
+                    answer.add(matrix[i][left]);
 
-            left++;
+                left++;
             }
             
         }

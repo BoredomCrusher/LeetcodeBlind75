@@ -1,5 +1,8 @@
 package Tree;
 
+import java.util.HashMap;
+import java.util.Stack;
+
 // LeetCode problem 104
 public class MaximumDepthOfBinaryTree {
     public static void main(String[] args) {
@@ -23,7 +26,7 @@ public class MaximumDepthOfBinaryTree {
         TreeNode node6 = new TreeNode(7);
         node5.right = node6;
 
-        System.out.println("depth of 5:" + maximumDepth.maxDepth(root));
+        System.out.println("depth of 5:" + maximumDepth.recursiveDepth(root));
     }
 
     // Definition for a binary tree node.
@@ -66,4 +69,41 @@ public class MaximumDepthOfBinaryTree {
         return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
     }
 
+    public int recursiveDepth(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        return Math.max(recursiveDepth(root.left) + 1, 
+                        recursiveDepth(root.right) + 1);
+    }
+
+    public int iterativeDepth(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        Stack<TreeNode> stack = new Stack<>();
+        HashMap<TreeNode, Integer> map = new HashMap<>();
+        int maxDepth = 0;
+
+        stack.push(root);
+        map.put(root, 1);
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+
+            if (root.left == null && root.right == null) {
+                maxDepth = Math.max(maxDepth, map.get(root));
+            } else {
+                if (root.left != null) {
+                    stack.push(root.left);
+                    map.put(root.left, map.get(root) + 1);
+                } 
+
+                if (root.right != null) {
+                    stack.push(root.right);
+                    map.put(root.right, map.get(root) + 1);
+                }
+            }
+        }
+        return maxDepth;
+    }
 }

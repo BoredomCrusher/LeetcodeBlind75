@@ -46,8 +46,7 @@ public class LargestSubstringWithoutCharacters {
 
         for (int right = 0; right < s.length(); right++) {
             while (set.contains(s.charAt(right))) {
-                set.remove(s.charAt(left));
-                left++;
+                set.remove(s.charAt(left++));
             }
 
             set.add(s.charAt(right));
