@@ -2,7 +2,6 @@ package String;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.lang.StringBuilder;
 
 public class LongestPalinDromicSubstring {
     // Leetcode 5
@@ -57,14 +56,9 @@ public class LongestPalinDromicSubstring {
         int right = currentIndex;
 
         while (left < right) {
-            if (s.charAt(left) == s.charAt(right)) {
-                left++;
-                right--; 
-            } else {
+            if (s.charAt(left++) != s.charAt(right--))
                 return output;
-            }
         }
-        System.out.println("new: " + s.substring(previousIndex, currentIndex + 1));
         return s.substring(previousIndex, currentIndex + 1);
     }
 }
