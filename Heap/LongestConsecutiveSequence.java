@@ -36,15 +36,14 @@ public class LongestConsecutiveSequence {
             if (!set.contains(i - 1)) {
                 current = 1;
 
-                while (set.contains(i + current)) {
+                while (set.contains(i + current))
                     current++;
-                }
 
                 max = Math.max(max, current);
             }
         }
 
-    return max;
+        return max;
     }
 
     // Slow but it works, O(n log n).
