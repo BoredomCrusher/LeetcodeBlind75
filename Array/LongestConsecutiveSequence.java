@@ -2,6 +2,7 @@ package Array;
 
 import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Arrays;
 
 public class LongestConsecutiveSequence {
     // leetcode 128
@@ -13,7 +14,7 @@ public class LongestConsecutiveSequence {
         int[] answers = new int[] {4, 9, 3};
 
         for (int i = 0; i < answers.length; i++) {
-            System.out.println("\ntest #" + (i + 1));
+            System.out.println("\ntest #" + (i + 1) + ": " + Arrays.toString(tests[i]));
             System.out.println("bruteforce: " + (bruteForce(tests[i]) == answers[i]));
             System.out.println("hashMapOnly: " + (hashMapOnly(tests[i]) == answers[i]));
         }
