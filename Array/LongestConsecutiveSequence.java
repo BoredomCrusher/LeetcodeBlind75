@@ -10,12 +10,12 @@ public class LongestConsecutiveSequence {
         int[][] tests = new int[][] {{100, 4, 200, 1, 3, 2}, 
                                     {0,3,7,2,5,8,4,6,0,1}, 
                                     {1,0,1,2}};
-        int[] results = new int[] {4, 9, 3};
+        int[] answers = new int[] {4, 9, 3};
 
-        for (int i = 0; i < results.length; i++) {
+        for (int i = 0; i < answers.length; i++) {
             System.out.println("\ntest #" + (i + 1));
-            System.out.println("bruteforce: " + (bruteForce(tests[i]) == results[i]));
-            System.out.println("hashMapOnly: " + (hashMapOnly(tests[i]) == results[i]));
+            System.out.println("bruteforce: " + (bruteForce(tests[i]) == answers[i]));
+            System.out.println("hashMapOnly: " + (hashMapOnly(tests[i]) == answers[i]));
         }
     }
 
