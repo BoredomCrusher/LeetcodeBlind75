@@ -1,29 +1,23 @@
 
 package String;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 // LeetCode problem 3: "Longest Substring Without Repeating Characters."
 public class LargestSubstringWithoutCharacters {
     public static void main(String[] args) {
-        LargestSubstringWithoutCharacters largestString = new LargestSubstringWithoutCharacters();
+        String[] tests = new String[] {"abcabcbb", "bbbbb", "pwwkew", "dvdf", "abba", "abc"};
+        int[] answers = new int[] {3, 1, 3, 3, 2, 3};
 
-        Boolean testCase1 = largestString.lengthOfLongestSubstring("abcabcbb") == 3;
-        Boolean testCase2 = largestString.lengthOfLongestSubstring("bbbbb") == 1;
-        Boolean testCase3 = largestString.lengthOfLongestSubstring("pwwkew") == 3;
-        Boolean testCase4 = largestString.lengthOfLongestSubstringSlidingWindow("dvdf") == 3;
-        Boolean testCase5 = largestString.lengthOfLongestSubstringSlidingWindow("abba") == 2;
-        Boolean testCase6 = largestString.lengthOfLongestSubstringSlidingWindow("abc") == 3;
-
-        System.out.println("testCase1: " + testCase1);
-        System.out.println("testCase2: " + testCase2);
-        System.out.println("testCase3: " + testCase3);
-        System.out.println("testCase4: " + testCase4);
-        System.out.println("testCase5: " + testCase5);
-        System.out.println("testCase6: " + testCase6);
+        for (int i = 0; i < answers.length; i++) {
+            System.out.println("\ntest #" + (i + 1) + ": " + tests[i]);
+            System.out.println("bruteForce: " + (bruteForce(tests[i]) == answers[i]));
+            System.out.println("withSlidingWindow: " + (withSlidingWindow(tests[i]) == answers[i]));
+        }
     }
 
-    public int lengthOfLongestSubstring(String s) {
+    public static int bruteForce(String s) {
         String currentSubstring = "";
         int maxLength = 0;
         int index;
@@ -39,7 +33,7 @@ public class LargestSubstringWithoutCharacters {
         return maxLength;
     }
 
-    public int lengthOfLongestSubstringSlidingWindow(String s) {
+    public static int withSlidingWindow(String s) {
         int left = 0;
         int maxLength = 0;
         HashSet<Character> set = new HashSet();
