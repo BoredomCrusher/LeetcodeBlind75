@@ -8,10 +8,10 @@ public class LongestConsecutiveSequence {
     // leetcode 128
 
     public static void main(String[] args) {
-        int[][] tests = new int[][] {{100, 4, 200, 1, 3, 2}, 
-                                    {0,3,7,2,5,8,4,6,0,1}, 
-                                    {1,0,1,2}};
-        int[] answers = new int[] {4, 9, 3};
+        int[][] tests = {{100, 4, 200, 1, 3, 2}, 
+                        {0,3,7,2,5,8,4,6,0,1}, 
+                        {1,0,1,2}};
+        int[] answers = {4, 9, 3};
 
         for (int i = 0; i < answers.length; i++) {
             System.out.println("\ntest #" + (i + 1) + ": " + Arrays.toString(tests[i]));
@@ -39,7 +39,7 @@ public class LongestConsecutiveSequence {
 
                 while (set.contains(i + current))
                     current++;
-
+                
                 max = Math.max(max, current);
             }
         }
@@ -52,10 +52,10 @@ public class LongestConsecutiveSequence {
          if (nums.length <= 1)
             return nums.length;
 
-        int max = 0;
-        int currentMax = 0;
-        int currentVal = 0;
-        int previousVal = Integer.MIN_VALUE;
+        int max, currentMax, currentVal, previousVal;
+
+        max = currentMax = currentVal = 0;
+        previousVal = Integer.MIN_VALUE;
 
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         HashSet<Integer> set = new HashSet<>();
@@ -66,16 +66,16 @@ public class LongestConsecutiveSequence {
                 set.add(i);
             }
         }
-            
 
         while (minHeap.peek() != null) {
             currentVal = minHeap.poll();
             if (currentVal == previousVal + 1) {
                 currentMax++;
+                max = Math.max(max, currentMax);
             } else {
                 currentMax = 0;
             }
-            max = Math.max(max, currentMax);
+            
             previousVal = currentVal;
         }
 
