@@ -8,7 +8,7 @@ public class ClimbingStairs {
         ClimbingStairs climbingStairs = new ClimbingStairs();
 
         for (int i = 1; i < 46; i++) {
-            System.out.println(climbingStairs.climbStairs(i));
+            System.out.println("test #" + i + ": " + climbingStairs.climbStairs(i));
         }
     }
 
