@@ -1,11 +1,17 @@
 package Binary;
 
+import java.util.Arrays;
+
 // LeetCode 371
 public class SumOfTwoIntegers {
     public static void main(String[] args) {
-        System.out.println(getSum(8, 3) == 11);
-        System.out.println(getSum(6, 7) == 13);
-        System.out.println(getSum(20, 30) == 50);
+        int[][] input = {{8,3}, {6,7}, {20,30}};
+        int[] answers = {11, 13, 50};
+
+        for (int i = 0; i < answers.length; i++) {
+            System.out.println("\ntest #" + (i + 1) + ": " + Arrays.toString(input[i]));
+            System.out.println("getSum: " + (getSum(input[i][0], input[i][1]) == answers[i]));
+        }   
     }
 
     public static int getSum(int a, int b) {
