@@ -1,22 +1,7 @@
 # Leetcode Problem 1
 
 # copies the exact logic of my java answer
-def twoSumOriginal(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: List[int]
-    """
-    sum_map = {}
-    for i in range(len(nums)):
-        if nums[i] in sum_map:
-            return [sum_map[nums[i]], i]
-        else:
-            sum_map[target - nums[i]] = i
-        
-    return []
-
-def twoSumNew(nums, target):
+def twoSum(nums, target):
     """
     :type nums: List[int]
     :type target: int
@@ -38,5 +23,5 @@ if __name__ == "__main__":
     
     for i in range(len(targets)):
         print("\ntest #" + str(i + 1) + ", nums: " + str(nums[i]) + ", target:", targets[i])
-        print("answer:", twoSumNew(nums[i], targets[i]))
+        print("answer:", twoSum(nums[i], targets[i]))
     
