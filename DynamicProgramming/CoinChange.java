@@ -8,9 +8,16 @@ public class CoinChange {
         int coins[] = { 11, 23, 29, 37, 48, 13 };
 
         CoinChange coinChange = new CoinChange();
+        int numberOfCoins;
+        System.out.println("Coins: " + Arrays.toString(coins) + "\n");
 
-        for (int i = 101; i < 102; i++) {
-            System.out.println(coinChange.coinChange(coins, i));
+        for (int i = 1; i < 50; i++) {
+            numberOfCoins = coinChange.coinChange(coins, i);
+            if (numberOfCoins == -1) {
+                System.out.println("Test #" + i + ": Number cannot be created with these coins");
+            } else {
+                System.out.println("Test #" + i + ": Number can be made with a minimum of " + numberOfCoins + " coins");
+            }
         }
     }
 
