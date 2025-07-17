@@ -6,13 +6,13 @@ import java.util.Arrays;
 // LeetCode problem 1
 public class TwoSum {
     public static void main(String[] args) {
-        int nums[][] = {{ 3, 2, 4 }, {1, 2, 3, 4, 5}, {4, 5, 6, 7}};
-        int target[] = { 6, 4, 9 };
+        int nums[][] = {{2, 7, 11, 15}, { 3, 2, 4 }, {1, 2, 3, 4, 5}, {4, 5, 6, 7}};
+        int target[] = { 9, 6, 4, 9 };
 
         TwoSum twosum = new TwoSum();
 
         for (int i = 0; i < target.length; i++) {
-            System.out.println("\ntest #" + i + " " + Arrays.toString(nums[i]) + " target: " + target[i]);
+            System.out.println("\ntest #" + i + " " + Arrays.toString(nums[i]) + ", target: " + target[i]);
             System.out.println("twoSum: " + Arrays.toString(twosum.twoSum(nums[i], target[i])));
         }
     }
