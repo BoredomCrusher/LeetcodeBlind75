@@ -1,7 +1,7 @@
 # Leetcode 20
 class Solution(object):
     
-    # copies logic from my python solution
+    # copies logic from my java solution
     def isValidOriginal(self, s):
         """
         :type s: str
