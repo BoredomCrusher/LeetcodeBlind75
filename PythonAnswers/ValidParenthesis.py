@@ -1,4 +1,4 @@
-# Leetcode 20
+# Leetcode Problem 20
 class Solution(object):
     
     # copies logic from my java solution

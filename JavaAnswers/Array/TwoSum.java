@@ -3,7 +3,7 @@ package Array;
 import java.util.HashMap;
 import java.util.Arrays;
 
-// LeetCode problem 1
+// LeetCode Problem 1
 public class TwoSum {
     public static void main(String[] args) {
         int nums[][] = {{2, 7, 11, 15}, { 3, 2, 4 }, {1, 2, 3, 4, 5}, {4, 5, 6, 7}};

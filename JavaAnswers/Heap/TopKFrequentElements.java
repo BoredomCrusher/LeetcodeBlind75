@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-// LeetCode problem 347
+// LeetCode Problem 347
 public class TopKFrequentElements {
     public static void main(String[] args) {
         int[] input = { 1, 2, 3, 2, 4, 5, 6, 7, 3, 7, 6, 5, 3, 4, 2, 1, 2, 3, 5, 4, 37, 6, 5 };

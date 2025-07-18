@@ -4,7 +4,7 @@ package String;
 import java.util.Arrays;
 import java.util.HashSet;
 
-// LeetCode problem 3: "Longest Substring Without Repeating Characters."
+// LeetCode Problem 3
 public class LargestSubstringWithoutCharacters {
     public static void main(String[] args) {
         String[] tests = new String[] {"abcabcbb", "bbbbb", "pwwkew", "dvdf", "abba", "abc"};

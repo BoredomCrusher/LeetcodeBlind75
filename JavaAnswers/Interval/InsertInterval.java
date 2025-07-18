@@ -3,7 +3,7 @@ package Interval;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// LeetCode 57
+// LeetCode Problem 57
 public class InsertInterval {
     public static void main(String[] args) {
         int[][] input1 = { { 1, 2 }, { 3, 5 }, { 6, 7 }, { 8, 10 }, { 12, 16 } };

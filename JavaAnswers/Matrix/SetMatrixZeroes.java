@@ -3,7 +3,7 @@ package Matrix;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// LeetCode 73
+// LeetCode Problem 73
 public class SetMatrixZeroes {
      public void setZeroes(int[][] matrix) {
         boolean zeroInInitialColumn = false;

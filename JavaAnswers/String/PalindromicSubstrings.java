@@ -1,7 +1,7 @@
 package String;
 
 public class PalindromicSubstrings {
-    // Leetcode 647
+    // Leetcode Problem 647
 
     public static void main(String[] args) {
         String[] inputs = new String[] {"a", "aa", "abc", "aaa", "aaaa", "abccba", 

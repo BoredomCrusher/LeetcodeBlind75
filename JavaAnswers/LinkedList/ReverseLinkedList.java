@@ -1,6 +1,6 @@
 package LinkedList;
 
-// LeetCode problem 206
+// LeetCode Problem 206
 public class ReverseLinkedList {
     public static void main(String[] args) {
         ReverseLinkedList linkedList = new ReverseLinkedList();

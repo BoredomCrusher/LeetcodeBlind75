@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.Arrays;
 
 public class LongestConsecutiveSequence {
-    // leetcode 128
+    // Leetcode Problem 128
 
     public static void main(String[] args) {
         int[][] tests = {{100, 4, 200, 1, 3, 2}, 

@@ -1,6 +1,6 @@
 package Heap;
 
-// LeetCode problem 23
+// LeetCode Problem 23
 public class MergeKSortedLists {
     public static void main(String[] args) {
         ListNode node1 = new ListNode(2);

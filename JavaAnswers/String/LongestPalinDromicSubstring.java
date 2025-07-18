@@ -4,25 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LongestPalinDromicSubstring {
-    // Leetcode 5
+    // Leetcode Problem 5
     public static void main(String[] args) {
-        String test0 = "babad";
-        String test1 = "abccba";
-        String test2 = "abcacba";
-        String test3 = "aaaa";
-        String test4 = "aabaa";
-        String test5 = "abcdefg";
-        String test6 = "abba";
-        String test7 = "ababa";
+        String[] tests = {"babad", "abccba", "abcacba", "aaaa", 
+                            "aabaa", "abcdefg", "abba", "ababa"};
+        String[] answers = {"bab or aba", "abccba", "abcacba", "aaaa", "aabaa", "a", "abba", "ababa"};
 
-        System.out.println("test0, bab or aba: " + longestPalindrome(test0) + "\n");
-        System.out.println("test1, abccba: " + longestPalindrome(test1) + "\n");
-        System.out.println("test2, abcacba: " + longestPalindrome(test2) + "\n");
-        System.out.println("test3, aaaa: " + longestPalindrome(test3) + "\n");
-        System.out.println("test4, aabaa: " + longestPalindrome(test4) + "\n");
-        System.out.println("test5, a: " + longestPalindrome(test5) + "\n");
-        System.out.println("test6, abba: " + longestPalindrome(test6) + "\n");
-        System.out.println("test7, ababa: " + longestPalindrome(test7) + "\n");
+        for (int i = 0; i < tests.length; i++) {
+            System.out.println("test #" + (i + 1) + ", " + answers[i] + ": " + longestPalindrome(tests[i]));
+        }
     }
 
     public static String longestPalindrome(String s) {

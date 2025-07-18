@@ -2,7 +2,7 @@ package Binary;
 
 import java.util.Arrays;
 
-// LeetCode 371
+// LeetCode Problem 371
 public class SumOfTwoIntegers {
     public static void main(String[] args) {
         int[][] input = {{8,3}, {6,7}, {20,30}};

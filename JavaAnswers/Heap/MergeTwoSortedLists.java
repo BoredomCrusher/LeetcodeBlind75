@@ -1,6 +1,6 @@
 package Heap;
 
-// LeetCode problem 21
+// LeetCode Problem 21
 
 // This question isn't in blind 75,
 // but it's a good warmup to solve MergeKSortedLists.

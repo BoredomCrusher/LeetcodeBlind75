@@ -3,7 +3,7 @@ package LinkedList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-// LeetCode problem 141
+// LeetCode Problem 141
 public class DetectLinkedListCycle {
     public static void main(String[] args) {
         DetectLinkedListCycle detectCycle = new DetectLinkedListCycle();

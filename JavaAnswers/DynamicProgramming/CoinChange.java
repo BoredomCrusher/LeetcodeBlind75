@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-// LeetCode problem 322
+// LeetCode Problem 322
 public class CoinChange {
     int dp[];
 

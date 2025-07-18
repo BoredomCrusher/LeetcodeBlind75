@@ -1,6 +1,6 @@
 package Binary;
 
-// LeetCode 191
+// LeetCode Problem 191
 public class NumberOfOneBits {
     public static void main(String[] args) {
         int input1 = 00000000000000000000000000001011;
