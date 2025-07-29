@@ -1,6 +1,5 @@
 package LinkedList;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
 // LeetCode Problem 141
